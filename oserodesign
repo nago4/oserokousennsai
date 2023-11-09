@@ -1,0 +1,80 @@
+# include <Siv3D.hpp>
+
+void Main()
+{
+	const Font font{ FontMethod::MSDF, 48, Typeface::Bold };
+
+	while (System::Update())
+	{
+		const double hue = (Scene::Time() * 60);
+
+		Scene::SetBackground(HSV{ hue, 0.6, 1.0 });
+
+		const double t = Scene::Time();
+		const double period = 28; // 周期
+		double adjustedT = std::fmod(t, period); // tをperiodで割った余りを計算
+		Circle{ 50, 30 * adjustedT - 840, 60 }.draw(Palette::Orange);
+		Circle{ 50, 30 * adjustedT - 720, 60 }.draw(Palette::Yellow);
+		Circle{ 50, 30 * adjustedT - 600, 60 }.draw(Palette::Yellowgreen);
+		Circle{ 50, 30 * adjustedT - 480, 60 }.draw(Palette::Skyblue);
+		Circle{ 50, 30 * adjustedT - 360, 60 }.draw(Palette::Purple);
+		Circle{ 50, 30 * adjustedT - 240, 60 }.draw(Palette::Pink);
+		Circle{ 50, 30 * adjustedT - 120, 60 }.draw(Palette::Red);
+		Circle{ 50, 30 * adjustedT, 60 }.draw(Palette::Orange);
+		Circle{ 50, 30 * adjustedT+120, 60 }.draw(Palette::Yellow);
+		Circle{ 50, 30 * adjustedT + 240, 60 }.draw(Palette::Yellowgreen);
+		Circle{ 50, 30 * adjustedT + 360, 60 }.draw(Palette::Skyblue);
+		Circle{ 50, 30 * adjustedT + 480, 60 }.draw(Palette::Purple);
+		Circle{ 50, 30 * adjustedT + 600, 60 }.draw(Palette::Pink);
+		Circle{ 50, 30 * adjustedT + 720, 60 }.draw(Palette::Red);
+
+		Circle{ 750, -30 * adjustedT, 60 }.draw(Palette::Orange);
+		Circle{ 750, -30 * adjustedT + 120, 60 }.draw(Palette::Yellow);
+		Circle{ 750, -30 * adjustedT + 240, 60 }.draw(Palette::Yellowgreen);
+		Circle{ 750, -30 * adjustedT + 360, 60 }.draw(Palette::Skyblue);
+		Circle{ 750, -30 * adjustedT + 480, 60 }.draw(Palette::Purple);
+		Circle{ 750, -30 * adjustedT + 600, 60 }.draw(Palette::Pink);
+		Circle{ 750, -30 * adjustedT + 720, 60 }.draw(Palette::Red);
+		Circle{ 750, -30 * adjustedT + 840, 60 }.draw(Palette::Orange);
+		Circle{ 750, -30 * adjustedT + 960, 60 }.draw(Palette::Yellow);
+		Circle{ 750, -30 * adjustedT + 1080, 60 }.draw(Palette::Yellowgreen);
+		Circle{ 750, -30 * adjustedT + 1200, 60 }.draw(Palette::Skyblue);
+		Circle{ 750, -30 * adjustedT + 1320, 60 }.draw(Palette::Purple);
+		Circle{ 750, -30 * adjustedT + 1440, 60 }.draw(Palette::Pink);
+		Circle{ 750, -30 * adjustedT + 1560, 60 }.draw(Palette::Red);
+
+		// 座標 (20, 40) を左上の基準位置にして、幅 400, 高さ 100 の長方形を描く 
+		Rect{ 100, 0, 600, 600 }.draw(Palette::Green);
+
+		Line{ 100, 0, 100, 600 }.draw(5, Palette::White);
+		Line{ 200, 0, 200, 600 }.draw(5, Palette::White);
+		Line{ 300, 0, 300, 600 }.draw(5, Palette::White);
+		Line{ 400, 0, 400, 600 }.draw(5, Palette::White);
+		Line{ 500, 0, 500, 600 }.draw(5, Palette::White);
+		Line{ 600, 0, 600, 600 }.draw(5, Palette::White);
+		Line{ 700, 0, 700, 600 }.draw(5, Palette::White);
+		Line{ 100, 0, 700, 0 }.draw(5, Palette::White);
+		Line{ 100, 100, 700, 100 }.draw(5, Palette::White);
+		Line{ 100, 200, 700, 200 }.draw(5, Palette::White);
+		Line{ 100, 300, 700, 300 }.draw(5, Palette::White);
+		Line{ 100, 400, 700, 400 }.draw(5, Palette::White);
+		Line{ 100, 500, 700, 500 }.draw(5, Palette::White);
+		Line{ 100, 600, 700, 600 }.draw(5, Palette::White);
+		Line{ 100, 700, 700, 700 }.draw(5, Palette::White);
+		Line{ 100, 800, 700, 800 }.draw(5, Palette::White);
+
+		Circle{ 350, 250, 45 }.draw(Palette::White);
+		Circle{ 350, 350, 45 }.draw(Palette::Black);
+		Circle{ 450, 250, 45 }.draw(Palette::White);
+		Circle{ 450, 350, 45 }.draw(Palette::Black);
+		Circle{ 350, 150, 45 }.draw(Palette::White);
+		Circle{ 350, 450, 45 }.draw(Palette::Black);
+		Circle{ 550, 250, 45 }.draw(Palette::Black);
+		Circle{ 550, 350, 45 }.draw(Palette::White);
+		Circle{ 250, 350, 45 }.draw(Palette::Black);
+
+		Rect{ 240, 50, 330, 150 }.draw(Palette::Yellowgreen);
+		font(U"	オセロ").draw(100, Vec2{ 10, 50 }, ColorF{ 0, 0 , 0 });
+
+	}
+}
